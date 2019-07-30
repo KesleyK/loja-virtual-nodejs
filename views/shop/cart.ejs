@@ -1,0 +1,33 @@
+<%- include('../includes/head') %>
+  <style>
+    img {
+      width: 300px;
+    }
+  </style>
+<body>
+  <header>
+    <%- include('../includes/navigation') %>
+  </header>
+  <hr>
+  
+  <h2>Product list...</h2>
+  <% if(products.length > 0) { %>
+    <ul>
+      <% products.forEach(prod => { %>
+        <h2><%= prod.title %> - Quantity: <%= prod.cartItem.quantity %></h2>
+        <img src="<%= prod.imageUrl %>" alt="<%= prod.title %>">
+        <h3>R$<%= prod.price %></h3>
+        <p><strong>Description:</strong> <%= prod.description %></p>
+        <hr>
+      <% }) %>
+    </ul>
+    <form action="/order" method="post">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <button type="submit">Order Cart</button>
+    </form>
+  <% }
+  else { %>
+    <h3>No products added</h3>
+  <% } %>
+</body>
+</html>

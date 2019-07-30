@@ -1,0 +1,31 @@
+<%- include('../includes/head') %>
+  <style>
+    img {
+      width: 300px;
+    }
+  </style>
+<body>
+  <header>
+    <%- include('../includes/navigation') %>
+  </header>
+  <hr>
+  
+  <h2>Product list...</h2>
+  <% if(orders.length > 0) { 
+      orders.forEach(order => { %>
+        <h1>Order #<%= order.id %></h1>
+        <ul>
+        <% order.products.forEach(product => { %>
+          <p><strong>Title: </strong><%= product.title %></p>
+          <p><strong>Price: </strong><%= product.price %></p>
+          <p><strong>Quantity: </strong><%= product.orderItem.quantity %></p>
+          <hr>
+        <% }) %>
+        </ul>
+      <% }) %>
+  <% }
+  else { %>
+    <h3>No orders added</h3>
+  <% } %>
+</body>
+</html>

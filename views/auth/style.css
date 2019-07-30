@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-weight: 400;
+  color: #161515;
+  line-height: 1.7; }
+
+html {
+  font-size: 10px; }
+
